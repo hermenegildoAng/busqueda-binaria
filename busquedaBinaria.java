@@ -34,22 +34,37 @@ public class busquedaBinaria {
 
     }
 
-    public static void main(String[] args) {
-        int arr[] = new int[5];
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[2] = 3;
-        arr[3] = 4;
-        arr[4] = 5;
+    public static void main(String[] args)throws IOException {
+         
+        Files files = new Files(); 
 
-        int objetivo = 4;
+        String fileNameInput;
+    
+        int[] arreglo;
+
+        int objetivo;
         int bu;
-        int ulti = arr.length - 1;
-        int in = 0; 
 
-        bu = busquedaBinaria(arr, objetivo);
+        System.out.println("----------------------------------------");
+        System.out.print("Escribe el nombre del archivo para buscar: ");
+        fileNameInput = bufer.readLine();
 
-        System.out.println("El objetivo esta en el indice: " +  bu + " = "  + arr[bu]);
+        System.out.print("Escribe el elemento a buscar: ");
+        entrada = bufer.readLine();
+        objetivo = Integer.parseInt(entrada);
+
+
+        arreglo = files.fileToIntArray(fileNameInput);
+
+
+        bu = busquedaBinaria(arreglo, objetivo);
+
+        if (bu == -1) {
+            System.out.print("Objetivo: " + objetivo + " no encontrado");
+        }else{
+            System.out.println("El objetivo esta en el indice: " +  bu + " = "  + arreglo[bu]);
+        }
+        
 
 
     }
